@@ -1,0 +1,44 @@
+<!doctype html>
+<head>
+  <title>网络音乐播放器</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div id="app">
+    <div id="left-area">
+      <div id="search-bar">
+        <input name="search-music" @keyup.enter="search($event.target.value)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0470fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </div>
+      <div id="songs-list">
+        <ul>
+          <li v-for="(song, index) in queryResults" @click="chooseSong(index)">
+            <div class="song-index">{{ index }}</div>
+            <div class="song-info">
+              <div class="song-name">{{ song.name }}</div>
+              <div class="song-artist-album">{{ song.artists[0].name }} - {{ song.album.name}}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="center-area">
+      <div class="album-cover">
+        <img class="cd" src="cd.png">
+        <img class="album-img" :src="albumCoverUrl">
+      </div>
+      <div>
+        <audio :src="songUrl" controls autoplay></audio>
+      </div>
+    </div>
+    <div id="right-area">
+      <ul>
+        <li v-for="lyric in lyricContentPerLine">{{ lyric }}</li>
+      </ul>
+    </div>
+  </div>
+  <script src="vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src=index.js></script>
+</body>

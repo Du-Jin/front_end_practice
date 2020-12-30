@@ -1,0 +1,121 @@
+:root {
+  --main-color: #0470fd;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: url('background.png');
+}
+#app {
+  width: 1600px;
+  height: 800px;
+  margin-top: 30px;
+  /* border-radius: var(--app-border-radius); */
+  background: transparent;
+  display: grid;
+  grid-template-columns: 600px 1fr 1fr;
+}
+
+
+
+#left-area {
+  width: 600px;
+  height: 800px;
+  background: #f1f0f5;
+  overflow: auto;
+  /* border-radius: var(--app-border-radius) 0px 0px var(--app-border-radius); */
+}
+#left-area #search-bar {
+  width: 520px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 40px;
+  border: 2px solid var(--main-color);
+  border-radius: 20px;
+}
+#left-area #search-bar input {
+  width: 400px;
+  height: 40px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 30px;
+  font-size: 24px;
+}
+#left-area #songs-list li {
+  height: 60px;
+  display: grid;
+  grid-template-columns: 5% auto;
+  align-items: center;
+}
+#left-area #songs-list li .song-index {
+  color: rgb(173, 172, 172);
+  /* display: inline-block; */
+}
+#left-area #songs-list li .song-info .song-name {
+  font-size: 1.2em;
+  color: var(--main-color);
+  /* display: inline-block; */
+}
+#left-area #songs-list li .song-info .song-artist-album {
+  color: rgb(107, 107, 107);
+  font-size: 0.9em;
+}
+
+
+
+#center-area {
+  background: white;
+  height: 800px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  flex-wrap: wrap;
+}
+#center-area .album-cover {
+  width: 360px;
+  height: 360px;
+  margin: 100px auto;
+  animation-name: album-cover-rotate;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+@keyframes album-cover-rotate {
+  100% {
+    transform: rotate(360deg)
+  }
+}
+#center-area .album-cover .cd {
+  width: 360px;
+  height: 360px;
+  z-index: 1;
+  filter: brightness(2)
+}
+#center-area .album-cover .album-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  transform: translate(100px, -260px)
+}
+/* #center-area .audio-bar {
+  width: 360px;
+} */
+
+
+#right-area {
+  width: 500px;
+  background: #fff;
+  height: 800px;
+  overflow: auto;
+  padding: 0px 50px;
+}
+#right-area li {
+  list-style: none;
+  margin-top: 20px;
+  text-align: center;
+}
